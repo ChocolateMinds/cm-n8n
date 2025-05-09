@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: n8n-monorepo
+    env: node
+    buildCommand: |
+      NODE_OPTIONS="--max-old-space-size=8192" pnpm install
+      NODE_OPTIONS="--max-old-space-size=8192" pnpm build
+    startCommand: pnpm start
+    envVars:
+      - key: NODE_VERSION
+        value: 20.15.0
